@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Ball Game</title>
+<style type="text/css">
+#ball {
+position: absolute;
+display: none;
+} 
+#restart{
+   display: none;
+   text-align:center; 
+   margin-top: 50px;
+}
+body {
+    background-color: #f8f3d4;
+}
+#gameMessage {
+   font-size: 100px;
+    color: #f6416c;
+    text-shadow:   5px 5px #ffde7d;
+    margin-top: 200px;
+    text-align: center;
+}
+#button{
+   margin : 50px ;
+   display: flex;
+   justify-content: center;
+}
+button{
+   background:    #f6416c;
+    border-radius: 8px;
+    box-shadow:    0 0px #444444;
+    width:         150px;
+    height:        50px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          normal bold 22px/45px "Calibri", sans-serif;
+    text-align:    center;
+    margin-bottom: 20px;
+    margin : 0px 50px;
+}
+button:hover{
+    background:    #f6416c;
+    border-radius: 8px;
+    box-shadow:    2px 2px #444444;
+    width:         150px;
+    height:        50px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          normal bold 22px/45px "Calibri", sans-serif;
+    text-align:    center;
+    margin-bottom: 20px;
+}
+
+h1{
+   font-size: 40px;
+    color: #ffffff;
+    text-shadow:   2px 2px #000000;
+    background:    #f6416c;
+    margin-top: 0px;
+    text-align: center;
+    border: 10px solid #ffde7d;
+}
+h2{
+    background: linear-gradient(to right, #f8f3d4,#f6416c, #f8f3d4);
+    padding:5px 0px 3px 10px;
+    font-size: 18pt;
+    letter-spacing: 4pt;
+    border-radius: 5px 0 0 5px;
+    text-align: center;
+    color:#f8f3d4;
+   margin-top: 200px;
+}
+</style>
+<script type="text/javascript">
+var ww = window.innerWidth;  //Browser's inner width in pixels
+var hh = window.innerHeight; //Browser's inner height in pixels
+var Srandom;    // 一到五秒隨機出現球
+var count = 0;    // 計算已顯示幾次球
+var Successtimes = 0;    // 計算成功點擊次數
+var Failtimes = 0;    // 計算失敗次數
+var Photo = 0;    // 計算圖片邊界大小
+function Run(value) {
+   n = value;
+   time = 0;
+   if (n == 1) {    // 簡單
+      $('ball').src = "red.png";
+      time = 3000;
+      Photo = 128;
+   }
+   if (n == 2) {    // 中等
+      $('ball').src = "black.png";
+      time = 2000;
+      Photo = 96;
+   }
+   if (n == 3) {    // 困難
+      $('ball').src = "white.png";
+      time = 1000;
+      Photo = 64;
+   }
+   Srandom = intRandom(1000, 5000);
+   $('ball').style.top = intRandom(80,hh-Photo) + 'px';
+   $('ball').style.left = intRandom(0,ww-Photo) + 'px';
+   // 兩層setTimeout: 經過隨機秒數後執行 => 顯示球、一秒後消失、count++、再經過time秒後執行Next()
+   window.setTimeout(`
+   $('ball').style.display = 'block';
+   Plus();
+   window.setTimeout("$('ball').style.display = 'none'; Next(n)", time);
+   `, Srandom);
+   $('ball').onclick = function(){
+      Success();
+      $('ball').style.display = 'none';
+   };
+}
+
+function Next(num) {
+   if (num == 1 & count < 10)
+      Run(1);
+   if (num == 2 & count < 10)
+      Run(2);
+   if (num == 3 & count < 10)
+      Run(3);
+   if (count == 10) {
+      Failtimes = 10 - Successtimes;
+      let strr2 = '成功' + Successtimes + '次                           失敗' + Failtimes + '次'; 
+      $('gameMessage').innerHTML = strr2;
+      $('restart').style.display = "block";
+      $('restart').onclick = function(){
+         $('restart').style.display = "none";
+         $("button").style.display = "flex";
+         $("level").style.display = "block";
+         $('gameMessage').style.display = "none";
+      };
+   }
+}
+function Plus() {    // 顯示次數加一
+   count = count + 1;
+}
+function Success() {    // 成功按到  成功次數加一
+   Successtimes = Successtimes + 1; 
+   $('gameMessage').innerHTML = Successtimes;
+}
+function Begin(value) {    // 開始將數值歸零
+   count = 0;
+   Successtimes = 0;
+   Failtimes = 0;
+   Photo = 0;
+   $('gameMessage').innerHTML = Successtimes;
+   $('gameMessage').style.display = "block";
+   $("button").style.display = "none";
+   $("level").style.display = "none";
+   Run(value);
+   strr = "";
+}
+function intRandom(min, max) {
+   return Math.floor(min+Math.random()*(max-min+1));
+}
+function $(id) {
+   return document.getElementById(id);
+}
+</script>
+</head>
+<body>
+   <h1>Ball Game</h1>
+   <h2 id="level">LEVEL</h2>
+<div id = "button">
+   <button onclick="Begin(1)" id = "easy">EASY</button>
+   <button onclick="Begin(2)" id = "normal">NORMAL</button>
+   <button onclick="Begin(3)" id = "hard">HARD</button>
+</div>
+<div id="gameMessage"></div>
+<center><button id="restart">RESTART</button></center>
+<img src="red.png" id="ball" style="display: none;"/>
+</body>
+</html>

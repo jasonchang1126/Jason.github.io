@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>張宸瑜的個人網頁</title>
+<!-- <link href="mycss.css" rel="stylesheet" type="text/css" /> -->
+<style type="text/css">
+body {
+    background-color:#ffde7d;
+}
+#container {
+    width : 900px;
+    margin : 20px auto;
+    padding : 20px;
+    border : 1px solid #ccc;
+    position : relative;
+    background-color: #00b8a9;
+}
+#banner {
+    height: 25em;
+    border: 1px solid #ccc;
+    padding : 20px;
+    background-image:url(me.jpg);
+    background-position: right, bottom;
+    background-size:57em;
+    background-repeat: no-repeat;
+}
+#content {
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #f8f3d4;
+    margin-top:20px;
+    border: 1px solid #ccc;
+    width: 740px;
+    line-height: 28px;
+}
+#menu {
+    position: absolute;
+    right: 20px;
+    top:480px;
+}
+#introduction {
+    font-weight: bold;
+    line-height: 45px;
+}
+#introduction li a{
+    color: #00b8a9;
+}
+#introduction li a:hover{
+    color: #ffde7d;
+}
+#works img {
+    border: 2px solid white;
+    border-color: #eee #666 #666 #eee;
+    /* border: 2px outset #ddd; */
+    background-color:ivory;
+    padding:10px;
+    margin: 10px 0px;
+    width: 150;
+}
+#banner img {
+    margin: 0px 0px 15px 15px;
+    width:250px;
+    padding: 10px;
+}
+#works {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 45px;
+}
+#works img[title$="photo"] :nth-of-type(odd) {
+    float: right;
+    margin: 0px 0px 15px 15px;
+    width:250px;
+    padding: 10px;
+}
+#works img[title$="photo"]  {
+    margin: 0px 0px 15px 15px;
+    width:250px;
+    padding: 10px;
+}
+#website img[title$="web"] {
+    height: 150px; 
+    width: 150px;
+}
+h1 {
+    font-size: 40px;
+    color: #ffffff;
+    text-shadow:   2px 2px #000000;
+    background:    #f6416c;
+    margin-top: 2px;
+    text-align: center;
+    border: 10px solid #ffde7d;
+}
+h2 {
+    background: linear-gradient(to right,#f6416c, #f8f3d4);
+    padding:5px 0px 3px 10px;
+    border-left:5px double #00b8a9;
+    font-size: 18pt;
+    letter-spacing: 4pt;
+    border-radius: 5px 0 0 5px;
+    color:#f8f3d4;
+}
+ul {
+list-style-type: none;
+}
+#menu li a{
+    background:    #f6416c;
+    border-radius: 8px;
+    box-shadow:    0 0px #444444;
+    width:         150px;
+    height:        50px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          normal bold 22px/45px "Calibri", sans-serif;
+    text-align:    center;
+    margin-bottom: 20px;
+}
+#menu li a:hover {    /*hover 游標移過去後*/
+    background:    #f6416c;
+    border-radius: 8px;
+    box-shadow:    2px 2px #444444;
+    width:         150px;
+    height:        50px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          normal bold 22px/45px "Calibri", sans-serif;
+    text-align:    center;
+    text-shadow:   2px 2px #000000;
+    margin-bottom: 20px;
+}
+
+table {width: 700px}
+td {
+    text-align: left;
+    font-size: 20;
+    font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+<div id = "container">
+    <div id = "banner">
+        <h1>張宸瑜的個人網頁</h1>
+    </div>
+    <div id = "menu">
+        <ul>
+            <li><a href="#introduction">個人簡介</a></li>
+            <li><a href="#works">作品</a></li>
+            <li><a href="#website">推薦網站</a></li>
+        </ul>
+    </div>
+    <div id = "content">
+        <div id = "introduction">
+            <h2>個人簡介</h2>
+            <ul>
+                <span style="font-size:24px">張宸瑜</span>
+                <hr/>
+                <li>性別 : 男
+                    <hr/>
+                <li>生日 : 1999/11/26
+                    <hr/>
+                <li>星座 : 射手座 &#9808
+                    <hr/>
+                <li>興趣 : 彈吉他、攝影、打羽球、打籃球
+                    <hr/>
+                <li>電話 : 0900203004
+                    <hr/>
+                <li>學歷 : 國立暨南國際大學
+                    <hr/>
+                <li>電子信箱 : <a href="mailto:s107213003@mail1.ncnu.edu.tw" >s107213003@mail1.ncnu.edu.tw</a>
+                    <hr/>
+                <li>Facebook : <a href="https://www.facebook.com/profile.php?id=100005068452992&ref=bookmarks" target="_blank" >張宸瑜</a>
+                    <hr/>
+            </ul>
+        </div>
+        <div id = "works">
+            <h2>作品</h2>
+            <ol>
+                <li>吉他</li>
+                <iframe style="padding: 45px;" width="560" height="315" src="https://www.youtube.com/embed/dO5zpNnLwTw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe style="padding: 45px;" width="560" height="315" src="https://www.youtube.com/embed/dO5zpNnLwTw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <hr/>
+                <li>攝影</li>
+                <img src="1.jpg" width="400px"  alt="柯基" title="柯基.photo" >
+                <img src="2.jpg" width="400px"  alt="日月潭" title="日月潭.photo" >
+                <img src="3.jpg" width="400px"  alt="人文攝影" title="人文攝影.photo" >
+                <img src="4.jpg" width="400px"  alt="商品攝影" title="商品攝影.photo" >
+                <img src="5.jpg" width="400px"  alt="馬芬" title="馬芬.photo" >
+                <img src="6.jpg" width="400px"  alt="人文攝影" title="人文攝影.photo" >
+            </ol>
+        </div>
+        <div id = "website">
+            <h2>推薦網站</h2>
+            <table>
+                <tr>
+                    <th><a href="https://www.youtube.com/?gl=TW&hl=zh-TW" target="_blank"><img src="youtube.png" alt="youtube" title="youtube.web"></a></th>
+                    <td><p>1.  Youtube</p><br/> YouTube是源自美國的影片分享網站，也是目前全球最大的影片搜尋和分享平臺，讓使用者上傳、觀看、分享及評論影片。</td>
+                </tr>
+                <tr>
+                    <th><a href="https://www.cdc.gov.tw/" target="_blank"><img src="疾管署.png" alt="衛生福利部疾病管制署" title="衛生福利部疾病管制署.web"></a></th>
+                    <td><p>2.  衛生福利部疾病管制署</p><br/> 疾病管制署網站可以查詢到關於疾病防治的最新消息，還有通報、宣導、統計等查詢功能。</td>
+                </tr>
+                <tr>
+                    <th><a href="https://finfo.tw/" target="_blank"><img src="finfo.png" alt="Finfo保險資訊站" title="Finfo保險資訊站.web"></a></th>
+                    <td><p>3.  Finfo保險資訊站</p><br/> Finfo保險資訊站可以幫你比較各保險公司的保險項目，讓你在保保險的時候有更明確的選擇。</td>
+                </tr>
+                <tr>
+                    <th><a href="https://www.91pu.com.tw/" target="_blank"><img src="91pu.png" alt="91pu" title="91pu.web"></a></th>
+                    <td><p>4.  91譜</p><br/> 91譜有大量的吉他和弦譜，包括最新發行的歌曲也有，對於吉他表演者來說是一個好用的網站。</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
